@@ -94,10 +94,6 @@ GEM
     formatador (0.2.5)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
-    guard-compat (1.2.1)
-    guard-minitest (2.4.4)
-      guard-compat (~> 1.2)
-      minitest (>= 3.0)
     i18n (0.7.0)
     inflecto (0.0.2)
     ipaddress (0.8.0)
@@ -215,7 +211,6 @@ DEPENDENCIES
   coffee-rails (= 4.1.0)
   faker (= 1.4.2)
   fog (= 1.23.0)
-  guard-minitest
   jbuilder (= 2.2.3)
   jquery-rails (= 4.0.3)
   mini_backtrace (= 0.1.3)
