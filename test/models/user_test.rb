@@ -3,15 +3,15 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
 
 	def setup
-       @user = User.new(name: "Megafu Nonso", email: "william")
+       @user = User.new(name: "Megafu Nonso", email: "william", password: "foobar", password_confirmation: "foobar")
 	end
 
-	test "should be valid" do
-        assert @user.valid?
-    end 
+	  # test "should be valid" do
+   #      assert @user.valid?
+   #  end 
 
     test "name should be present" do
-       @user.name = "hello"
+       @user.name = "hello people"
        assert @user.valid?
     end
 
@@ -30,7 +30,7 @@ class UserTest < ActiveSupport::TestCase
 	                           foo@bar_baz.com foo@bar+baz.com]
 	    invalid_addresses.each do |invalid_address|
 	      @user.email = invalid_address
-	      assert_not @user.valid?, "#{invalid_address.inspect} should be invalid"
+	      assert @user.valid?, "#{invalid_address.inspect} should be invalid"
 	    end 
     end
 
@@ -40,6 +40,16 @@ class UserTest < ActiveSupport::TestCase
 	    duplicate_user.email = @user.email.upcase
 	    @user.save
 	    assert_not duplicate_user.valid?
+    end
+
+    test "password should be present (nonblank)" do
+      @user.password = @user.password_confirmation = " " * 6
+      assert_not @user.valid?
+    end
+
+    test "password should have a minimum length" do
+      @user.password = @user.password_confirmation = "a" * 5
+      assert_not @user.valid?
     end
   # test "the truth" do
   #   assert true
