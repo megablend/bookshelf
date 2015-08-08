@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def new
   	@user = User.new
+    @password_confirmation = "Confirmation";
   end
 
   def create
