@@ -8,6 +8,7 @@
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
   </head>
+  <!-- Layout -->
   <body>
     <%= render 'layouts/header' %>
     <div class="container">
@@ -15,6 +16,7 @@
           <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
       <%= yield %>
+      <!-- Footer -->
       <%= render 'layouts/footer' %>
       <%= debug(params) if Rails.env.development? %>
     </div>
