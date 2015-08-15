@@ -12,6 +12,8 @@ class UsersController < ApplicationController
   def create
    @user = User.new(user_params)
 	   if(@user.save)
+        #automatically log a user in
+        log_in @user
         flash[:success] = "Welcome to the bookshelf dashboard"
 	   	  redirect_to @user
 	   else
